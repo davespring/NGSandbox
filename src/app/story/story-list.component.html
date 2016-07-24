@@ -1,0 +1,11 @@
+<div>
+    <input type="text" [(ngModel)]='storiesFilter' />
+    <br/>
+    <p>Stories Filtered by: {{ storiesFilter | lowercase }}</p>
+</div>
+
+<div>
+    <ul>
+        <li *ngFor="let story of stories | storyFilter:storiesFilter">{{ story.title  }}</li>
+    </ul>
+</div>

@@ -1,0 +1,8 @@
+<div>
+    <h1 [style.color]='titleColor'>{{ title }}</h1>
+    <button (click)='ToggleDescription()'>{{ showDescription ? 'Show' : 'Hide' }} Description</button>
+</div>
+
+<div *ngIf="showDescription">
+    <p>{{ description }}</p>
+</div>
