@@ -2,7 +2,7 @@ import { bootstrap } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
 import { AppComponent, environment } from './app/';
 import { Http, Response, HTTP_PROVIDERS } from '@angular/http';
-
+import { appRouterProviders } from './app/app.routes';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -13,5 +13,5 @@ if (environment.production) {
   enableProdMode();
 }
 
-bootstrap(AppComponent, HTTP_PROVIDERS);
+bootstrap(AppComponent, [HTTP_PROVIDERS, appRouterProviders]);
 
