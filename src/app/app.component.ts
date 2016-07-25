@@ -8,7 +8,6 @@ import { ProductService } from './product/product.service';
 import { Http, Response, HTTP_PROVIDERS } from '@angular/http';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
-
 @Component({
   moduleId: module.id,
   selector: 'app-root',
