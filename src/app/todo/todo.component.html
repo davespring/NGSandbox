@@ -1,11 +1,20 @@
 <h1>TodoPage</h1>
 
 
-<input class="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodo.title" (keyup.enter)="addTodoFinal()">
+<input class="new-todo" placeholder="Input Todo Item" autofocus="" [(ngModel)]="newTodo.title" (keyup.enter)="addTodoFinal()">
 <button (click)="addTodoFinal()">Add Todo</button>
 
-
+<div>
 <ul>
-    <li *ngFor="let todo of todos">Title: {{ todo.title }} Id: {{ todo.id }} <button (click)="removeTodo(todo.id)">Remove</button></li>
-</ul>
+    <li *ngFor="let todo of todos" [style.text-decoration]="strikeThrough(todo)">Title: {{ todo.title }} Id: {{ todo.id }}
+        <input type="checkbox" (click)="toggleTodoComplete(todo)" [checked]="todo.complete"> 
+        <button (click)="removeTodo(todo.id)">Remove</button>
+    </li>
 
+</ul>
+</div>
+
+
+<div *ngIf="todos.length > 0">
+    <span>You have <strong>{{ todos.length }}</strong>{{ todos.length == 1 ? ' item': ' items' }} remaining</span>
+</div>
