@@ -14,16 +14,27 @@ export class TodoComponent implements OnInit {
 
   todos: Todo[] = [];
   lastId: number = 0;
+  
+  // New Todo from input
+  newTodo: Todo = new Todo();
 
   constructor(){}
   ngOnInit(){
     console.log("TodoComponent Initialized")
   }
 
-  addTodo(){
-    let newId = ++this.lastId;
-    let newTodo = new Todo(newId, 'New Todo');
-    this.todos.push(newTodo);
+  
+  addTodo(todo: Todo){
+    if (!todo.id) {
+      todo.id = ++this.lastId;
+    }
+    this.todos.push(todo);
+    return this;
+  }
+
+  addTodoFinal(){
+    this.addTodo(this.newTodo);
+    this.newTodo = new Todo();
   }
 
   getAllTodos(): Todo[]{
