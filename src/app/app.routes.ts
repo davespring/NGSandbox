@@ -4,11 +4,13 @@ import { HomeComponent } from './home/home.component';
 //import { UserComponent } from './user/user.component';
 //import { UserHomeComponent } from './user/user-home.component';
 import { FormComponent } from './form/form.component';
-import { formRoutes }        from './form/form.routes';
+import { formRoutes } from './form/form.routes';
+import { todoRoutes } from './todo/todo.routes';
 
 const routes: RouterConfig = [
   { path: '',  component: HomeComponent },
-  ...formRoutes
+  ...formRoutes,
+  ...todoRoutes
 ];
 
 export const appRouterProviders = [

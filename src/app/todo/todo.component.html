@@ -1,0 +1,9 @@
+<h1>TodoPage</h1>
+
+<button (click)="addTodo()">Add Todo</button>
+
+
+<ul>
+    <li *ngFor="let todo of todos">{{ todo }}<button (click)="removeTodo(todo)">Remove</button></li>
+    
+</ul>
