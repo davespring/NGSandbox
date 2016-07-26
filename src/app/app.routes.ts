@@ -7,12 +7,14 @@ import { FormComponent } from './form/form.component';
 import { formRoutes } from './form/form.routes';
 import { todoRoutes } from './todo/todo.routes';
 import { wikiRoutes } from './wiki/wiki.routes';
+import { quandlRoutes } from './quandl/quandl.routes';
 
 const routes: RouterConfig = [
   { path: '',  component: HomeComponent },
   ...formRoutes,
   ...todoRoutes,
-  ...wikiRoutes
+  ...wikiRoutes,
+  ...quandlRoutes
 ];
 
 export const appRouterProviders = [
