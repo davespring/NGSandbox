@@ -1,0 +1,8 @@
+<div>
+    <h3>Product List</h3>
+</div>
+<div>
+    <ul>
+        <li *ngFor="let product of products | async">{{ product.productName | lowercase }} </li>
+    </ul>
+</div>

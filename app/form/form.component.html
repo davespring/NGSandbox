@@ -1,0 +1,49 @@
+<div>
+    <h1>Form Page</h1>
+</div>
+
+<div [hidden]="submitted">
+    <h1>Hero Form</h1>
+    <form *ngIf="active" (ngSubmit)="onSubmit()" #heroForm="ngForm">
+      {{diagnostic}}
+      <div class="name-input">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="model.name" name="name"  #name="ngModel" #spy required>
+        <div [hidden]="name.valid || name.pristine" class="name-required">
+          Name is required
+        </div>
+        <p class="input-spy">TODO: remove this: {{spy.className}}</p>        
+      </div>
+      <div>
+        <label for="alterEgo">Alter Ego</label>
+        <input type="text" [(ngModel)]="model.alterEgo" name="alterEgo">
+      </div>
+        <div>
+            <label for="power">Hero Power</label>
+            <select [(ngModel)]="model.power" name="power" required>
+            <option *ngFor="let p of powers" [value]="p">{{p}}</option>
+        </select>
+        </div>
+      <button type="submit" [disabled]="!heroForm.form.valid">Submit</button>
+      <button type="button" (click)="newHero()">New Hero</button>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h2>You submitted the following:</h2>
+  <div>
+    <div>Name</div>
+    <div>{{ model.name }}</div>
+  </div>
+  <div>
+    <div>Alter Ego</div>
+    <div>{{ model.alterEgo }}</div>
+  </div>
+  <div>
+    <div>Power</div>
+    <div>{{ model.power }}</div>
+  </div>
+  <br>
+  <button (click)="submitted=false">Edit</button>
+</div>
+
